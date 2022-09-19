@@ -1,0 +1,44 @@
+public class Diceholder{
+    //Private values of class. Not allowed to change values during game outside of this class
+    private Die[] dice;
+    private int[] rolls;
+
+    //Default constructor for the game. Takes 2 dice
+    public Diceholder(){
+        //Assign values of array
+        dice = {Die(6), Die(6)};
+        rolls = new int[2];
+    }
+
+    //Constructor with n amount of dice, in case customer wants to change the game
+    public Diceholder(int dice){
+        //Instanciate dice
+        dice = new Die[dice];
+        for (int i = 0; i < dice; i++) {
+            dice[i] = new Die(6);
+        }
+        rolls = new int[dice];
+    }
+
+    //Iterate over each die, roll it, and assign the rolls to an array for stats checking.
+    public int[] Roll(){
+        rollDie();
+        return rolls;
+    }
+
+    //private method for rolling the dice
+    private void rollDie(){
+        for (int i = 0; i < dice.length; i++) {
+            rolls[i] = dice[i].Roll();
+        }
+    }
+
+    //Get total value of last roll
+    public int Sum(){
+        int totalValue = 0;
+        for (int roll : rolls) {
+            totalValue += roll;
+        }
+        return totalValue;
+    }
+}
