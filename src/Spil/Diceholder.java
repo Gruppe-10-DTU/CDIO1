@@ -1,5 +1,7 @@
 package Spil;
 
+import java.util.Arrays;
+
 public class Diceholder{
     //Private values of class. Not allowed to change values during game outside of this class
     private Die[] dice;
@@ -44,8 +46,17 @@ public class Diceholder{
         return totalValue;
     }
 
-    //See if the two die are equal
+    //See if the n die are equal
     public boolean isEqual(){
-        return rolls[0]==rolls[1];
+
+        if(Arrays.stream(rolls).distinct().count() == 1){
+            return true;
+        }
+        return false;
     }
+    //Get the unique die in case it's needed
+    public int getUnique(){
+        return rolls[0];
+    }
+
 }
