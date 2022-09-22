@@ -8,18 +8,18 @@ public class Diceholder{
     //Default constructor for the game. Takes 2 dice
     public Diceholder(){
         //Assign values of array
-        dice = {new Die(), new Die()};
+        dice = new Die[]{new Die(), new Die()};
         rolls = new int[2];
     }
 
     //Constructor with n amount of dice, in case customer wants to change the game
-    public Diceholder(int dice){
+    public Diceholder(int diceAmt){
         //Instanciate dice
-        dice = new Die[dice];
-        for (int i = 0; i < dice; i++) {
+        dice = new Die[diceAmt];
+        for (int i = 0; i < diceAmt; i++) {
             dice[i] = new Die();
         }
-        rolls = new int[dice];
+        rolls = new int[diceAmt];
     }
 
     //Iterate over each die, roll it, and assign the rolls to an array for stats checking.
@@ -31,7 +31,7 @@ public class Diceholder{
     //private method for rolling the dice
     private void rollDie(){
         for (int i = 0; i < dice.length; i++) {
-            rolls[i] = dice[i].Roll();
+            rolls[i] = dice[i].roll();
         }
     }
 
