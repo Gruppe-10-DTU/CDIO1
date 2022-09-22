@@ -1,10 +1,9 @@
-package Spil;
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.ArrayList;
-//OBS POINT FASTSAT FOR TESTS. KENDER IKKE DICEROLLER FUNCTION OG SÅDAN.
 
-class mainSpil {
+
+class mainGame {
     public static void main(String[] args) {
 //        List p1P = null, p2P = null;
         int p1P = 5, p2P = 39, sP1 = IntStream.of(p1P).sum(), sP2 = IntStream.of(p2P).sum(), v1 = 0, winner = 0, wP1 = 0, wP2 = 0, tT = 0;
@@ -25,28 +24,28 @@ class mainSpil {
 //                p1P.setPoints(0);
 //                p2P.setPoint(0);
 //            }
-            if ((sP1 < 40) && (sP2 < 40)) {
+            if ((sP1 < 40) && (sP2 < 40) && (winner == 0)) {
                 if (turn){
                     System.out.println("Please select one of the following actions:");
                     System.out.println("1. Roll dice");
                     System.out.println("2. Show points");
                     System.out.println("3. Show rules");
-                 uITrue = uI.nextLine();
-                 if (uITrue.toLowerCase().equals("roll") || (uITrue.equals("1"))) {
-                    //rolldice append to p1P
-                    System.out.println("yoyo");
-                    v1 = v1 + 1;
-                    tT = tT + 1;
-                    p1P = p1P + 1;
-                    sP1 = IntStream.of(p1P).sum();
-                    turn = false;
-                 } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
-                    //show points
-                    System.out.print("Player 1 points: " + sP1);
-                 } else if (uITrue.toLowerCase().equals("show rules") || (uITrue.equals("3"))) {
-                    //show rules
-                    System.out.print("We rulez");
-                 }
+                    uITrue = uI.nextLine();
+                    if (uITrue.toLowerCase().equals("roll") || (uITrue.equals("1"))) {
+                        //rolldice append to p1P
+                        System.out.println("yoyo");
+                        v1 = v1 + 1;
+                        tT = tT + 1;
+                        p1P = p1P + 1;
+                        sP1 = IntStream.of(p1P).sum();
+                        turn = false;
+                    } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
+                        //show points
+                        System.out.println("Player 1 points: " + sP1);
+                    } else if (uITrue.toLowerCase().equals("show rules") || (uITrue.equals("3"))) {
+                        //show rules
+                        System.out.println("We rulez");
+                    }
                 } else if (turn == false) {
                     System.out.println("Please select one of the following actions:");
                     System.out.println("1. Roll dice");
@@ -62,7 +61,7 @@ class mainSpil {
                         sP2 = IntStream.of(p2P).sum();
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
-                        System.out.print("Player 2 points: " + sP2);
+                        System.out.println("Player 2 points: " + sP2);
                     } else if (uITrue.toLowerCase().equals("show rules") || (uITrue.equals("3"))) {
                         //show rules
                         System.out.println("We nutz rulez");
@@ -98,7 +97,7 @@ class mainSpil {
                 } else if (uITrue.toLowerCase().equals("exit") || (uITrue.equals("3"))) {
                     exit = false;
 
-            }
+                }
             }
         }
     }
