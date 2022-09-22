@@ -11,15 +11,15 @@ public class mainTest {
 
         for (int i = 0; i < iterations; i++) {
             DH.roll();
-            /*if (DH.isSame()){
+            if (DH.isEqual()){
                 results[0]++;
-            }*/
+            }
             results[DH.sum()-1]++;
         }
 
-        System.out.println("Dice same: " + results[0]);
+        System.out.println("Amount of equal dice: " + results[0]);
         for (int i = 1; i < 12; i++) {
-            System.out.println("Dice sum "+ (i+1) +": " + results[i] + ", Percentage: " + ((double)results[i]*100/iterations));
+            System.out.println("Sum of dice "+ (i+1) +": " + results[i] + ", Percentage: " + ((double)results[i]*100/iterations));
         }
     }
 }
