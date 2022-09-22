@@ -1,3 +1,5 @@
+package Spil;
+
 public class Diceholder{
     //Private values of class. Not allowed to change values during game outside of this class
     private Die[] dice;
@@ -6,7 +8,7 @@ public class Diceholder{
     //Default constructor for the game. Takes 2 dice
     public Diceholder(){
         //Assign values of array
-        dice = {Die(6), Die(6)};
+        dice = {new Die(), new Die()};
         rolls = new int[2];
     }
 
@@ -15,13 +17,13 @@ public class Diceholder{
         //Instanciate dice
         dice = new Die[dice];
         for (int i = 0; i < dice; i++) {
-            dice[i] = new Die(6);
+            dice[i] = new Die();
         }
         rolls = new int[dice];
     }
 
     //Iterate over each die, roll it, and assign the rolls to an array for stats checking.
-    public int[] Roll(){
+    public int[] roll(){
         rollDie();
         return rolls;
     }
@@ -34,7 +36,7 @@ public class Diceholder{
     }
 
     //Get total value of last roll
-    public int Sum(){
+    public int sum(){
         int totalValue = 0;
         for (int roll : rolls) {
             totalValue += roll;
