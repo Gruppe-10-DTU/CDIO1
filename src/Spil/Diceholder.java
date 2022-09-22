@@ -43,4 +43,9 @@ public class Diceholder{
         }
         return totalValue;
     }
+
+    //See if the two die are equal
+    public boolean isEqual(){
+        return rolls[0]==rolls[1];
+    }
 }
