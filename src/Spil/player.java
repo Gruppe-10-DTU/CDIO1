@@ -1,8 +1,25 @@
 package Spil;
 
 public class player {
-    private static void main(String[] args) {
-        int points = 0;
-        String identifier = "";
+
+    private int points = 0;
+    private String identifier = "";
+
+    // getter
+    public int getPoints() {
+        return points;
+    }
+    // setter
+    public void setPoints(int newPoints) {
+        this.points = newPoints;
+    }
+
+    // getter
+    public String getIdentifier() {
+        return identifier;
+    }
+    // setter
+    public void setIdentifier(String newIdentifier) {
+        this.identifier = newIdentifier;
     }
 }
