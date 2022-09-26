@@ -27,7 +27,12 @@ class mainGame {
 
                         player1.setPoints(Rolls(player1.getPoints()));
                         winner = isOver(player1);
-                        turn = false;
+                        //If the player rolls two equal dice, they will get another turn
+                        if(!holder.isEqual()){
+                            turn = false;
+                        }else{
+                            System.out.println("Since you rolled two equal dice you'll get another turn");
+                        }
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
                         System.out.println("Player 1 points: " + player1.getPoints());
@@ -40,7 +45,12 @@ class mainGame {
 
                         player2.setPoints(Rolls(player2.getPoints()));
                         winner = isOver(player2);
-                        turn = true;
+                        if(!holder.isEqual()){
+                            turn = true;
+                        }else{
+                            System.out.println("Since you rolled two equal dice you'll get another turn");
+                        }
+
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
                         System.out.println("Player 2 points: " + player2.getPoints());
