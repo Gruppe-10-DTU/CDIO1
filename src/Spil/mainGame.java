@@ -25,7 +25,7 @@ class mainGame {
                     if (uITrue.toLowerCase().equals("roll") || (uITrue.equals("1"))) {
                         //rolldice append to p1P
 
-                        player1.setPoints(Rolls(player1.getPoints()));
+                        player1 = Rolls(player1);
                         winner = isOver(player1);
                         turn = false;
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
@@ -38,7 +38,7 @@ class mainGame {
                     if (uITrue.toLowerCase().equals("roll") || (uITrue.equals("1"))) {
                         //rolldice append to p1P
 
-                        player2.setPoints(Rolls(player2.getPoints()));
+                        player2 = Rolls(player2);
                         winner = isOver(player2);
                         turn = true;
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
@@ -75,16 +75,13 @@ class mainGame {
         System.out.println("2. Show points");
     }
 
-    private static int Rolls(int oldPoints){
+    private static Player Rolls(Player player){
         rolls = holder.roll();
         System.out.println(rolls[0] + ", " +rolls[1]);
-
-        if(holder.sum() == 2){
-            return 0;
-        }else{
-            return oldPoints + holder.sum();
-        }
+        player.setPoints(player.getPoints() + holder.sum());
+        return player;
     }
+
 }
 
 
