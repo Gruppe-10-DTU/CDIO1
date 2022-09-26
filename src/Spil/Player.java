@@ -3,7 +3,12 @@ package Spil;
 public class Player {
 
     private int points = 0;
-    private String identifier = "";
+    private String identifier;
+
+    //Constructor
+    public Player(String name){
+        identifier = name;
+    }
 
     // getter
     public int getPoints() {
