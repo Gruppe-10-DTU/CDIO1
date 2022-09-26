@@ -6,7 +6,7 @@ public class mainTest {
     public static void main(String[] args) {
         //0 = same dice, rest are the combined value of the two dice
         int[] results = new int[12];
-        int iterations = 10000;
+        int iterations = 1000;
         Diceholder DH = new Diceholder();
 
         for (int i = 0; i < iterations; i++) {
