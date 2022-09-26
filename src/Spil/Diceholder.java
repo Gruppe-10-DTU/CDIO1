@@ -52,9 +52,4 @@ public class Diceholder{
         }
         return false;
     }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(rolls);
-    }
 }
