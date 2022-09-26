@@ -47,7 +47,7 @@ class mainGame {
                     }
                 }
             } else {
-                System.out.println(player1.getPoints()>=40 ? player1.getIdentifier() : player2.getIdentifier() + " won");
+                System.out.println(player1.getPoints()>=40 ? player1.getIdentifier() : player2.getIdentifier() + " has won");
                 System.out.println("Please choose one of the following actions: ");
                 System.out.println("1. Play again");
                 System.out.println("2. Exit");
