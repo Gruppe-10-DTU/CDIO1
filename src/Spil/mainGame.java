@@ -26,6 +26,7 @@ class mainGame {
                         //rolldice append to p1P
 
                         player1 = Rolls(player1);
+                        winner = isOver(player1);
                         turn = false;
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
@@ -38,6 +39,7 @@ class mainGame {
                         //rolldice append to p1P
 
                         player2 = Rolls(player2);
+                        winner = isOver(player2);
                         turn = true;
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
@@ -45,6 +47,7 @@ class mainGame {
                     }
                 }
             } else {
+                System.out.println(player1.getPoints()>=40 ? player1.getIdentifier() : player2.getIdentifier() + " won");
                 System.out.println("Please choose one of the following actions: ");
                 System.out.println("1. Play again");
                 System.out.println("2. Exit");
@@ -61,10 +64,8 @@ class mainGame {
         }
     }
 
-    private boolean isOver(Player player, boolean doubleDie){
-        if((player.getPoints() >= 40)){
-            return true;
-        } return false;
+    private  static boolean isOver(Player player){
+        return player.getPoints() >= 40;
     }
 
     private static void showOptions(String name){
