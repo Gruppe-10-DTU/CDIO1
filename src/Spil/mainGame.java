@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 class mainGame {
-    private final int diceAmount = 2;
+    private static final int diceAmount = 2;
 
     private static Diceholder holder = new Diceholder(diceAmount);
     private static int[] rolls = new int[diceAmount];
