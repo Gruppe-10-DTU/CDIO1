@@ -15,8 +15,8 @@ class mainGame {
         String uITrue = "";
         Scanner uI = new Scanner(System.in);
         boolean exit = true, turn = true, winner = false;
-        Player player1 = new Player("Spiller 1");
-        Player player2 = new Player("Spiller 2");
+        Player player1 = new Player("Player 1");
+        Player player2 = new Player("Player 2");
         while (exit) {
             if (!winner) {
                 if (turn){
@@ -31,7 +31,7 @@ class mainGame {
                         if(!holder.isEqual()){
                             turn = false;
                         }else{
-                            System.out.println("Since you rolled two equal dice you'll get another turn");
+                            System.out.println("Since you rolled a double you'll get another turn");
                         }
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
@@ -48,7 +48,7 @@ class mainGame {
                         if(!holder.isEqual()){
                             turn = true;
                         }else{
-                            System.out.println("Since you rolled two equal dice you'll get another turn");
+                            System.out.println("Since you rolled a double you'll get another turn");
                         }
 
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
