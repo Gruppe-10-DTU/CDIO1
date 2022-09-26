@@ -52,8 +52,4 @@ public class Diceholder{
         }
         return false;
     }
-
-    public int getUnique(){
-        return rolls[0];
-    }
 }
