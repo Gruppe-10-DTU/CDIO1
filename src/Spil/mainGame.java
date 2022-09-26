@@ -78,6 +78,7 @@ class mainGame {
     private static int Rolls(int oldPoints){
         rolls = holder.roll();
         System.out.println(rolls[0] + ", " +rolls[1]);
+
         if(holder.sum() == 2){
             return 0;
         }else{
