@@ -45,6 +45,13 @@ public class Diceholder{
         }
         return totalValue;
     }
+    //See if the n die are equal
+    public boolean isEqual(){
+        if(Arrays.stream(rolls).distinct().count() == 1){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
