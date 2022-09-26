@@ -1,6 +1,6 @@
 package Spil;
 
-public class player {
+public class Player {
 
     private int points = 0;
     private String identifier = "";
