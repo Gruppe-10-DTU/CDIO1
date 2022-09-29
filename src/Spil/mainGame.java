@@ -27,12 +27,12 @@ class mainGame {
                         //rolldice append to p1P
 
                         player1.setPoints(Rolls(player1.getPoints()));
-                        winner = isOver(player1);
+                        winner = isOver(player1, holder.isEqual());
                         //If the player rolls two equal dice, they will get another turn
                         if(!holder.isEqual()){
                             turn = false;
                             prevSum = 0;
-                        }else{
+                        }else if (!winner){
                             System.out.println("Since you rolled a double you'll get another turn");
                             winner = sixes(holder.sum(), prevSum, player1);
                             prevSum = holder.sum();
@@ -48,11 +48,11 @@ class mainGame {
                         //rolldice append to p1P
 
                         player2.setPoints(Rolls(player2.getPoints()));
-                        winner = isOver(player2);
+                        winner = isOver(player2, holder.isEqual());
                         if(!holder.isEqual()){
                             turn = true;
                             prevSum = 0;
-                        }else{
+                        }else if(!winner){
                             System.out.println("Since you rolled a double you'll get another turn");
                             winner = sixes(holder.sum(), prevSum, player2);
                             prevSum = holder.sum();
@@ -81,8 +81,8 @@ class mainGame {
         }
     }
 
-    private  static boolean isOver(Player player){
-        return player.getPoints() >= 40;
+    private  static boolean isOver(Player player, boolean isEqual){
+        return player.getPoints() >= 40 && isEqual;
     }
 
     private static void showOptions(String name){
@@ -104,9 +104,9 @@ class mainGame {
     private static boolean sixes(int sum, int prevSum, Player player){
         if (sum == 12 && prevSum == 12){
             player.setPoints(40);
-            return isOver(player);
+            return isOver(player, true);
         }
-        return isOver(player);
+        return false;
     }
 
 }
