@@ -15,6 +15,7 @@ class mainGame {
         String uITrue = "";
         Scanner uI = new Scanner(System.in);
         boolean exit = true, turn = true, winner = false;
+        int prevSum = 0;
         Player player1 = new Player("Player 1");
         Player player2 = new Player("Player 2");
         while (exit) {
@@ -30,8 +31,11 @@ class mainGame {
                         //If the player rolls two equal dice, they will get another turn
                         if(!holder.isEqual()){
                             turn = false;
+                            prevSum = 0;
                         }else{
                             System.out.println("Since you rolled a double you'll get another turn");
+                            winner = sixes(holder.sum(), prevSum, player1);
+                            prevSum = holder.sum();
                         }
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
                         //show points
@@ -47,8 +51,11 @@ class mainGame {
                         winner = isOver(player2);
                         if(!holder.isEqual()){
                             turn = true;
+                            prevSum = 0;
                         }else{
                             System.out.println("Since you rolled a double you'll get another turn");
+                            winner = sixes(holder.sum(), prevSum, player2);
+                            prevSum = holder.sum();
                         }
 
                     } else if (uITrue.toLowerCase().equals("show points") || (uITrue.equals("2"))) {
@@ -57,7 +64,7 @@ class mainGame {
                     }
                 }
             } else {
-                System.out.println(player1.getPoints()>=40 ? player1.getIdentifier() : player2.getIdentifier() + " won");
+                System.out.println((turn ? player1.getIdentifier() : player2.getIdentifier()) + " won");
                 System.out.println("Please choose one of the following actions: ");
                 System.out.println("1. Play again");
                 System.out.println("2. Exit");
@@ -79,8 +86,7 @@ class mainGame {
     }
 
     private static void showOptions(String name){
-        System.out.println(name);
-        System.out.println("Please select one of the following actions:");
+        System.out.println(name + " please select one of the following actions:");
         System.out.println("1. Roll dice");
         System.out.println("2. Show points");
     }
@@ -94,6 +100,15 @@ class mainGame {
             return oldPoints + holder.sum();
         }
     }
+
+    private static boolean sixes(int sum, int prevSum, Player player){
+        if (sum == 12 && prevSum == 12){
+            player.setPoints(40);
+            return isOver(player);
+        }
+        return isOver(player);
+    }
+
 }
 
 
