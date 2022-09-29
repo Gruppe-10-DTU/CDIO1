@@ -86,8 +86,7 @@ class mainGame {
     }
 
     private static void showOptions(String name){
-        System.out.println(name);
-        System.out.println("Please select one of the following actions:");
+        System.out.println(name + " please select one of the following actions:");
         System.out.println("1. Roll dice");
         System.out.println("2. Show points");
     }
